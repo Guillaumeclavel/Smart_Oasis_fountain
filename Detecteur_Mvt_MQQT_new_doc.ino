@@ -67,7 +67,6 @@ void loop()
   client.loop();
 
   boolean state=digitalRead(SENSOR_PIN);
-  delay(2000);
   if(state==HIGH) {
     Serial.println("Motion detected!");
     client.publish("Maison/ArriereCuisine/Mouvement", "Motion detected");
@@ -75,4 +74,5 @@ void loop()
   else {
     Serial.println("No Motion!");
   }
+delay(1000); // Correction pour gagner en temps de réponse du système
 }
